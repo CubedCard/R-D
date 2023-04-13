@@ -4,10 +4,7 @@ import hva.derksen.jip.researchbe.model.User;
 import hva.derksen.jip.researchbe.repository.UserRepository;
 import hva.derksen.jip.researchbe.service.BMICalculatorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/bmi")
@@ -17,7 +14,7 @@ public class BMIController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/{name}")
+    @GetMapping("/{name}")
     public double calculateBMIForUser(@PathVariable String name) {
         User user = this.userRepository.getUserByName(name);
         if (user == null) {
