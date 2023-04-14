@@ -13,7 +13,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Build and Analyze with SonarQube
-      run: mvn clean verify sonar:sonar \
+      run: cd research-be; mvn clean verify sonar:sonar \
         -Dsonar.projectKey=$SONAR_PROJECT_KEY \
         -Dsonar.host.url=$SONAR_HOST_URL \
         -Dsonar.login=$SONAR_LOGIN
